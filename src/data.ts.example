@@ -1,0 +1,12 @@
+import { Project } from "./types";
+
+export const USERNAME = "example";
+export const GITHUB_PROFILE = "https://github.com/example";
+
+export const PROJECTS: Project[] = [
+    {
+        name: "Lorem ipsum",
+        url: "https://example.com",
+        repo: "https://github.com/example/lorem-ipsum",
+    },
+];

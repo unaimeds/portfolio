@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "@fontsource/lilex";
+
+@theme {
+    --color-*: initial;
+
+    /* https://github.com/pankvitek/bonbon.nvim/blob/main/lua/bonbon/colors.lua */
+    --color-bg: #282526;
+    --color-fg: #ffe7c6;
+    --color-accent: #ffd394;
+    --color-keyword: #c6d757;
+    --color-statement: #64ca7e;
+    --color-tag: #ffb857;
+    --color-variable: #ffdcaa;
+    --color-text-secondary: #676162;
+    --color-fg-idle: #8a9199;
+    --color-ret: #68d1a4;
+    --color-constant: #bece5d;
+    --color-local-var: #eecb99;
+    --color-operator: #c9918f;
+    --color-module: #adafff;
+}
+
+html,
+body {
+    @apply bg-bg text-fg;
+    font-family: "Lilex", monospace;
+}
