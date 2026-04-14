@@ -20,9 +20,7 @@ export function App() {
         PROJECTS.forEach(({ name, url, repo }) => {
             lines.value = [
                 ...lines.value,
-                <div
-                    className={`${url ? "text-green" : "text-foreground4"} mt-2`}
-                >
+                <div className={`${url ? "text-green" : "text-foreground4"}`}>
                     <span className="mr-2">-</span>
                     {url ? (
                         <Link href={url} label={name} />
@@ -41,14 +39,14 @@ export function App() {
 
     return (
         <main className="mx-auto w-[min(80%,800px)] my-6 sm:text-lg text-foreground md:text-xl">
-            <h1 className="font-extrabold text-red mb-0.5 text-2xl tracking-wide sm:text-3xl md:text-4xl">
+            <h1 className="font-extrabold text-red ml-2 mb-0.5 text-2xl tracking-wide sm:text-3xl md:text-4xl">
                 {USERNAME}
             </h1>
             <div onMouseLeave={() => (currentLine.value = null)}>
                 {lines.value.map((line, idx) => (
                     <div
                         key={idx}
-                        className={`${currentLine.value === idx ? "bg-background1" : ""}`}
+                        className={`${currentLine.value === idx ? "bg-background1" : ""} py-0.5 px-2`}
                         onMouseEnter={() => (currentLine.value = idx)}
                     >
                         {line}
