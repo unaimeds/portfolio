@@ -7,9 +7,10 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@fontsource/lilex": "^5.2.1",
+		"@fontsource/iosevka": "^5.2.5",
 		"@tailwindcss/vite": "^4.2.2",
 		"preact": "^10.26.9",
+		"tailwind-merge": "^3.5.0",
 		"tailwindcss": "^4.2.2"
 	},
 	"devDependencies": {

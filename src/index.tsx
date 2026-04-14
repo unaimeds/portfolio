@@ -2,48 +2,61 @@ import { render } from "preact";
 
 import "./style.css";
 import { GITHUB_PROFILE, PROJECTS, USERNAME } from "./data";
+import { cn } from "./utils";
 
 export function App() {
     return (
-        <main className="mx-auto w-[min(80%,800px)] my-6 sm:text-lg md:text-xl">
-            <h1 className="font-extrabold text-2xl tracking-wide sm:text-3xl md:text-4xl">
+        <main className="mx-auto w-[min(80%,800px)] my-6 sm:text-lg text-foreground md:text-xl">
+            <h1 className="font-extrabold text-red mb-0.5 text-2xl tracking-wide sm:text-3xl md:text-4xl">
                 {USERNAME}
             </h1>
-            <a
+            <Link
                 href={GITHUB_PROFILE}
-                target="_blank"
-                className="mb-4 mt-1 block text-operator underline hover:text-operator/70"
-            >
-                github
-            </a>
-            <p>I build stuff</p>
-            <p className="font-bold mt-6">My projects:</p>
-            <ul className="list-['-'] list-inside">
+                label="<github>"
+                className="text-orange"
+            />
+            <p className="mt-4">I build stuff</p>
+            <p className="font-bold mt-6 text-yellow">My projects:</p>
+            <ul className="list-inside">
                 {PROJECTS.map(({ name, url, repo }, idx) => (
-                    <li key={idx} className="text-accent mt-2">
+                    <li
+                        key={idx}
+                        className={`${url ? "text-green" : "text-foreground4"} mt-2`}
+                    >
+                        <span className="mr-2">-</span>
                         {url ? (
-                            <a
-                                href={url}
-                                target="_blank"
-                                className="hover:text-tag ml-2"
-                            >
-                                {name}
-                            </a>
+                            <Link href={url} label={name} />
                         ) : (
-                            <p className="inline ml-2 text-fg">{name}</p>
+                            <p className="inline">{name}</p>
                         )}
-                        <a
+                        <Link
                             href={repo}
-                            target="_blank"
-                            className="ml-2 text-keyword hover:text-keyword/70"
-                        >
-                            [source]
-                        </a>
+                            className="text-purple ml-2"
+                            label="[source]"
+                        />
                     </li>
                 ))}
             </ul>
         </main>
     );
 }
+
+const Link = ({
+    label,
+    href,
+    className,
+}: {
+    label: string;
+    href: string;
+    className?: string;
+}) => (
+    <a
+        href={href}
+        target="_blank"
+        className={cn("text-green hover:underline", className)}
+    >
+        {label}
+    </a>
+);
 
 render(<App />, document.getElementById("app"));
